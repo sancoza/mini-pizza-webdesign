@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Mini Pizza™ — Handmade, crispy, and full of flavor. Explore our packs, discounts, and sweet & salty favorites."
+    />
+    <title>Mini Pizza™ | Share the Smile</title>
+
+    <link rel="icon" type="image/png" href="./src/assets/img/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/assets/css/main.css" />
+    <link rel="stylesheet" href="./src/assets/css/responsive.css" />
+  </head>
+
+  <body>
+    <!-- ============================= -->
+    <!-- SITE HEADER -->
+    <!-- ============================= -->
+    <header class="site-header">
+      <button
+        class="hamburger"
+        id="navToggle"
+        aria-controls="drawer"
+        aria-expanded="false"
+        aria-label="Open menu"
+      >
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <a href="index.html" class="logo" aria-label="Mini Pizza home">
+        <img
+          src="./src/assets/img/logo-mini-pizza.png"
+          alt="Mini Pizza™ logo"
+        />
+      </a>
+
+      <button class="btn order-now">ORDER NOW</button>
+
+      <button class="cart" id="cartBtn" aria-label="Cart (0 items)">
+        <i class="fa-solid fa-cart-shopping fa-lg" aria-hidden="true"></i>
+        <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
+    </header>
+
+    <!-- ============================= -->
+    <!-- MOBILE DRAWER MENU -->
+    <!-- ============================= -->
+    <div class="overlay" id="overlay" hidden></div>
+
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <header class="drawer-head">
+        <strong>MENU</strong>
+        <button class="drawer-close" id="closeDrawer" aria-label="Close menu">
+          &times;
+        </button>
+      </header>
+
+      <nav class="drawer-nav">
+        <a href="index.html">HOME</a>
+        <a href="#">PRODUCTS</a>
+        <a href="pages/store-finder.html">STORE FINDER</a>
+        <a href="./src/pages/blogs-page.html">BLOG</a>
+        <a href="./src/pages/our-story.html">OUR STORY</a>
+        <a href="#">FAQ</a>
+        <a href="#">ACCOUNT</a>
+      </nav>
+    </aside>
+
+    <!-- ============================= -->
+    <!-- MAIN -->
+    <!-- ============================= -->
+    <main>
+      <section class="hero-pack">
+        <div class="container">
+          <h1 class="hero-pack-title">Handmade, crispy, and full of flavor.</h1>
+
+          <div class="hero-pack-grid">
+            <!-- LEFT: Visual -->
+            <div class="hero-pack-visual" id="packVisual">
+              <!-- Back Box -->
+              <svg
+                class="box box-back"
+                viewBox="0 0 420 340"
+                aria-hidden="true"
+              >
+                <g fill="none" fill-rule="evenodd">
+                  <path
+                    fill="#FF6A6D"
+                    d="m51.865 71.015 3.096 252.976 319.368-79.165 4.674-225.422z"
+                  ></path>
+                  <path
+                    fill="#FF6A6D"
+                    d="M54.961 323.991 5.73 288.498 1 48.241l50.865 22.774"
+                  ></path>
+                  <path
+                    fill="#FF6A6D"
+                    d="M51.865 71.015 1 48.241 319.241 1l59.762 18.404"
+                  ></path>
+                  <path
+                    stroke="#FFB4B5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    d="m51.367 71.15 3.99 252.337M51.367 71.15 378 20M2 48 319 1M379.003 19.169 320.158 1.001M50.868 70.646 2 50M6 288 1 48.44M6 289l49 34M379.501 19.674l-4.488 225.589M374 245 55.357 323.487"
+                  ></path>
+                </g>
+              </svg>
+
+              <!-- Front Box -->
+              <svg
+                class="box box-front"
+                viewBox="0 0 420 340"
+                aria-hidden="true"
+              >
+                <g fill="none" fill-rule="evenodd">
+                  <path
+                    fill="#FF6A6D"
+                    d="m51.865 71.015 3.096 252.976 319.368-79.165 4.674-225.422z"
+                  ></path>
+                  <path
+                    fill="#FF6A6D"
+                    d="M54.961 323.991 5.73 288.498 1 48.241l50.865 22.774"
+                  ></path>
+                  <path
+                    fill="#FF6A6D"
+                    d="M51.865 71.015 1 48.241 319.241 1l59.762 18.404"
+                  ></path>
+                  <path
+                    stroke="#FFB4B5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    d="m51.367 71.15 3.99 252.337M51.367 71.15 378 20M2 48 319 1M379.003 19.169 320.158 1.001M50.868 70.646 2 50M6 288 1 48.44M6 289l49 34M379.501 19.674l-4.488 225.589M374 245 55.357 323.487"
+                  ></path>
+                  <text
+                    opacity=".063"
+                    font-size="139"
+                    font-weight="700"
+                    fill="#000"
+                    transform="translate(1 1)"
+                  >
+                    <tspan x="190" y="205">?</tspan>
+                  </text>
+                </g>
+              </svg>
+
+              <!-- Product Images -->
+              <div
+                class="product-shot product-shot-back"
+                id="productShotBack"
+                aria-hidden="true"
+              >
+                <img id="productImgBack" alt="" />
+              </div>
+
+              <div
+                class="product-shot product-shot-front"
+                id="productShotFront"
+                aria-hidden="true"
+              >
+                <img id="productImgFront" alt="" />
+              </div>
+
+              <div class="box-shadow"></div>
+            </div>
+
+            <!-- RIGHT: Options -->
+            <div class="hero-pack-options" aria-labelledby="packOptionsTitle">
+              <div class="option-group">
+                <div class="option-group-title" id="packOptionsTitle">
+                  1. Choose Pack Size
+                </div>
+
+                <div
+                  class="option-group-buttons"
+                  role="group"
+                  aria-label="Pack size"
+                >
+                  <button
+                    class="size-pill is-active"
+                    id="sizeOption12"
+                    data-pieces="12"
+                    aria-pressed="true"
+                  >
+                    <small class="pill-badge">BEST SELLER</small>
+                    <strong>2 BOXES</strong>
+                    <span>12 PIECES</span>
+                  </button>
+
+                  <button
+                    class="size-pill"
+                    id="sizeOption6"
+                    data-pieces="6"
+                    aria-pressed="false"
+                  >
+                    <small class="pill-badge pill-badge-muted"
+                      >BEST VALUE</small
+                    >
+                    <strong>2 BOXES</strong>
+                    <span>6 PIECES</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="option-group">
+                <div class="option-group-title">2. Choose Flavors</div>
+
+                <div class="select-row">
+                  <!-- Front Box -->
+                  <label class="custom-select" data-hybrid>
+                    <select
+                      id="pizzaSelectFront"
+                      aria-label="Select flavor for front box"
+                    >
+                      <option value="">BOX 1 – CHOOSE FLAVOR</option>
+                      <option
+                        value="pepperoni"
+                        data-name="Pepperoni"
+                        data-p12="22"
+                        data-p6="12"
+                        data-img="./src/assets/img/packs/minipizza-23.png"
+                      >
+                        Pepperoni - 22$
+                      </option>
+                      <option
+                        value="margarita"
+                        data-name="Margarita"
+                        data-p12="18"
+                        data-p6="10"
+                        data-img="./src/assets/img/packs/minipizza-24.png"
+                      >
+                        Margarita - 18$
+                      </option>
+                      <option
+                        value="bacon"
+                        data-name="Bacon"
+                        data-p12="23"
+                        data-p6="13"
+                        data-img="./src/assets/img/packs/minipizza-23.png"
+                      >
+                        Bacon - 23$
+                      </option>
+                      <option
+                        value="veggie"
+                        data-name="Veggie"
+                        data-p12="20"
+                        data-p6="11"
+                        data-img="./src/assets/img/packs/minipizza-24.png"
+                      >
+                        Veggie - 20$
+                      </option>
+                      <option
+                        value="chocolate"
+                        data-name="Chocolate"
+                        data-p12="19"
+                        data-p6="10"
+                        data-img="./src/assets/img/packs/minipizza-23.png"
+                      >
+                        Chocolate - 19$
+                      </option>
+                      <option
+                        value="vanilla"
+                        data-name="Vanilla"
+                        data-p12="19"
+                        data-p6="10"
+                        data-img="./src/assets/img/packs/minipizza-24.png"
+                      >
+                        Vanilla - 19$
+                      </option>
+                    </select>
+                    <span class="chevron">▾</span>
+                  </label>
+
+                  <!-- Back Box -->
+                  <label class="custom-select" data-hybrid>
+                    <select
+                      id="pizzaSelectBack"
+                      aria-label="Select flavor for back box"
+                    >
+                      <option value="">BOX 2 – CHOOSE FLAVOR</option>
+                      <option
+                        value="pepperoni"
+                        data-name="Pepperoni"
+                        data-p12="22"
+                        data-p6="12"
+                        data-img="./src/assets/img/packs/minipizza-23.png"
+                      >
+                        Pepperoni - 22$
+                      </option>
+                      <option
+                        value="margarita"
+                        data-name="Margarita"
+                        data-p12="18"
+                        data-p6="10"
+                        data-img="./src/assets/img/packs/minipizza-24.png"
+                      >
+                        Margarita - 18$
+                      </option>
+                      <option
+                        value="bacon"
+                        data-name="Bacon"
+                        data-p12="23"
+                        data-p6="13"
+                        data-img="./src/assets/img/packs/minipizza-23.png"
+                      >
+                        Bacon - 23$
+                      </option>
+                      <option
+                        value="veggie"
+                        data-name="Veggie"
+                        data-p12="20"
+                        data-p6="11"
+                        data-img="./src/assets/img/packs/minipizza-24.png"
+                      >
+                        Veggie - 20$
+                      </option>
+                      <option
+                        value="chocolate"
+                        data-name="Chocolate"
+                        data-p12="19"
+                        data-p6="10"
+                        data-img="./src/assets/img/packs/minipizza-23.png"
+                      >
+                        Chocolate - 19$
+                      </option>
+                      <option
+                        value="vanilla"
+                        data-name="Vanilla"
+                        data-p12="19"
+                        data-p6="10"
+                        data-img="./src/assets/img/packs/minipizza-24.png"
+                      >
+                        Vanilla - 19$
+                      </option>
+                    </select>
+                    <span class="chevron">▾</span>
+                  </label>
+                </div>
+              </div>
+
+              <button id="addToCart" class="btn-cta">
+                Add to Cart — <span id="priceBtn">$0.00</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wave wave-top wave-white" aria-hidden="true">
+          <svg viewBox="0 0 1800 96" preserveAspectRatio="none">
+            <path
+              d="M1704.49 60.36C1671.34 55.34 1635.28 70.42 1601.93 66.01C1568.69 61.62 1537.8 37.68 1504.37 33.91C1471.06 30.15 1435.59 46.59 1402.09 43.44C1368.72 40.31 1336.94 17.56 1303.38 15.04C1269.95 12.54 1235.13 30.3 1201.54 28.42C1168.08 26.54 1135.46 5 1101.83 3.75C1068.34 2.5 1034.21 21.56 1000.56 20.93C967.05 20.31 933.66 0 900 0C866.34 0 832.95 20.31 799.44 20.93C765.79 21.56 731.66 2.5 698.17 3.75C664.54 5 631.93 26.55 598.46 28.42C564.86 30.3 530.04 12.54 496.62 15.04C463.07 17.55 431.29 40.3 397.91 43.44C364.41 46.58 328.95 30.15 295.63 33.91C262.2 37.69 231.3 61.62 198.07 66.01C164.72 70.42 128.66 55.33 95.51 60.36C62.51 65.36 32.75 90.09 0 96H1800C1767.25 90.1 1737.49 65.36 1704.49 60.36Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- =================== MINI PIZZA – FEATURE BILLBOARD =================== -->
+      <section class="mp-billboard" aria-label="Mini Pizza highlights">
+        <!-- Global overlay za fotke (uvek preko cele sekcije) -->
+        <div class="mp-overlay" aria-hidden="true">
+          <div class="mp-decor tl squircle"></div>
+          <div class="mp-decor tr squircle"></div>
+          <div class="mp-decor bl squircle"></div>
+          <div class="mp-decor br squircle"></div>
+        </div>
+
+        <div class="mp-inner">
+          <div
+            class="mp-line"
+            data-img-tl="./src/assets/img/mini-pizza-handmade.png"
+            data-img-br="./src/assets/img/minipizza-bacon.png"
+          >
+            <h2>HANDMADE</h2>
+            <button class="smile-trigger left" aria-label="Celebrate">
+              <img src="./src/assets/img/logo.png" alt="" class="smile-icon" />
+            </button>
+          </div>
+
+          <div
+            class="mp-line"
+            data-img-tr="./src/assets/img/mini-pizzas-box.png"
+            data-img-bl="./src/assets/img/minipizza-pepperoni.png"
+          >
+            <h2>CRISPY OUTSIDE</h2>
+          </div>
+
+          <div
+            class="mp-line"
+            data-img-tl="./src/assets/img/minipizza-veggie.png"
+            data-img-br="./src/assets/img/mini-pizza-stretchy-cheese.png"
+          >
+            <h2>SOFT INSIDE</h2>
+            <button class="smile-trigger right" aria-label="Celebrate">
+              <img src="./src/assets/img/logo.png" alt="" class="smile-icon" />
+            </button>
+          </div>
+
+          <div
+            class="mp-line"
+            data-img-tl="./src/assets/img/blog-vanilla.png"
+            data-img-br="./src/assets/img/minipizza-vanilla.png"
+          >
+            <h2>MADE FOR HAPPY</h2>
+          </div>
+
+          <div
+            class="mp-line"
+            data-img-tr="./src/assets/img/instagram-post-1.png"
+            data-img-bl="./src/assets/img/minipizza-chocolate.png"
+          >
+            <h2>MOMENTS</h2>
+          </div>
+        </div>
+
+        <div class="wave wave-top wave-red" aria-hidden="true">
+          <svg viewBox="0 0 1800 96" preserveAspectRatio="none">
+            <path
+              d="M1704.49 60.36C1671.34 55.34 1635.28 70.42 1601.93 66.01C1568.69 61.62 1537.8 37.68 1504.37 33.91C1471.06 30.15 1435.59 46.59 1402.09 43.44C1368.72 40.31 1336.94 17.56 1303.38 15.04C1269.95 12.54 1235.13 30.3 1201.54 28.42C1168.08 26.54 1135.46 5 1101.83 3.75C1068.34 2.5 1034.21 21.56 1000.56 20.93C967.05 20.31 933.66 0 900 0C866.34 0 832.95 20.31 799.44 20.93C765.79 21.56 731.66 2.5 698.17 3.75C664.54 5 631.93 26.55 598.46 28.42C564.86 30.3 530.04 12.54 496.62 15.04C463.07 17.55 431.29 40.3 397.91 43.44C364.41 46.58 328.95 30.15 295.63 33.91C262.2 37.69 231.3 61.62 198.07 66.01C164.72 70.42 128.66 55.33 95.51 60.36C62.51 65.36 32.75 90.09 0 96H1800C1767.25 90.1 1737.49 65.36 1704.49 60.36Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section class="slider-section" aria-label="Mini pizzas showcase">
+        <div class="slider-ticker" aria-hidden="true">
+          <div class="ticker-track">
+            <span
+              >• MINI PIZZAS • BACON • PEPPERONI • MARGHERITA • VEGGIE • VANILLA
+              • CHOCOLATE • CHEEZY • FRESH • CRISPY •</span
+            >
+            <span
+              >• MINI PIZZAS • BACON • PEPPERONI • MARGHERITA • VEGGIE • VANILLA
+              • CHOCOLATE • CHEEZY • FRESH • CRISPY •</span
+            >
+            <span
+              >• MINI PIZZAS • BACON • PEPPERONI • MARGHERITA • VEGGIE • VANILLA
+              • CHOCOLATE • CHEEZY • FRESH • CRISPY •</span
+            >
+          </div>
+        </div>
+
+        <div class="slider-head">
+          <p class="section-subtitle">
+            Bacon • Pepperoni • Margherita • Veggie • Vanilla • Chocolate •
+            Cheezy
+          </p>
+
+          <h2 class="section-title section-title--on-orange tilt-left">
+            Which Mini Pizza
+            <span class="highlight"><span>is your favorite?</span></span>
+          </h2>
+
+          <div class="slider-filters" role="tablist" aria-label="Pizza filters">
+            <button
+              class="filter-pill is-active"
+              data-filter="all"
+              role="tab"
+              aria-selected="true"
+            >
+              All
+            </button>
+            <button
+              class="filter-pill"
+              data-filter="veggie"
+              role="tab"
+              aria-selected="false"
+            >
+              Veggie
+            </button>
+            <button
+              class="filter-pill"
+              data-filter="salty"
+              role="tab"
+              aria-selected="false"
+            >
+              Salty
+            </button>
+            <button
+              class="filter-pill"
+              data-filter="dessert"
+              role="tab"
+              aria-selected="false"
+            >
+              Sweet Moments
+            </button>
+          </div>
+        </div>
+
+        <div class="slider-wrap">
+          <div class="slider-viewport" id="pizzaViewport">
+            <ul class="slider-track" id="pizzaTrack" aria-live="polite">
+              <li class="slide" data-cat="veggie">
+                <article class="pizza-card">
+                  <div class="bg-orbit" aria-hidden="true"></div>
+                  <div class="imgbox">
+                    <img
+                      class="pizza-img primary"
+                      src="./src/assets/img/minipizza-veggie.png"
+                      alt="Veggie mini pizza"
+                    />
+                    <img
+                      class="pizza-img hover"
+                      src="./src/assets/img/minipizza-halfveggie.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="pizza-name">Veggie</h3>
+                  <p class="tags">Vege • Love</p>
+                  <a
+                    href="#"
+                    aria-label="Open Veggie mini pizza"
+                    style="
+                      position: absolute;
+                      inset: 0;
+                      z-index: 5;
+                      display: block;
+                    "
+                  ></a>
+                </article>
+              </li>
+
+              <li class="slide" data-cat="salty">
+                <article class="pizza-card">
+                  <div class="bg-orbit" aria-hidden="true"></div>
+                  <div class="imgbox">
+                    <img
+                      class="pizza-img primary"
+                      src="./src/assets/img/minipizza-pepperoni.png"
+                      alt="Pepperoni mini pizza"
+                    />
+                    <img
+                      class="pizza-img hover"
+                      src="./src/assets/img/minipizza-halfpepperoni.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="pizza-name">Pepperoni</h3>
+                  <p class="tags">Salty • Mood</p>
+                  <a
+                    href="#"
+                    aria-label="Open Pepperoni mini pizza"
+                    style="
+                      position: absolute;
+                      inset: 0;
+                      z-index: 5;
+                      display: block;
+                    "
+                  ></a>
+                </article>
+              </li>
+
+              <li class="slide" data-cat="dessert">
+                <article class="pizza-card">
+                  <div class="bg-orbit" aria-hidden="true"></div>
+                  <div class="imgbox">
+                    <img
+                      class="pizza-img primary"
+                      src="./src/assets/img/minipizza-chocolate.png"
+                      alt="Chocolate mini pizza"
+                    />
+                    <img
+                      class="pizza-img hover"
+                      src="./src/assets/img/minipizza-halfchocolate.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="pizza-name">Chocolate</h3>
+                  <p class="tags">Sweet • Moments</p>
+                  <a
+                    href="#"
+                    aria-label="Open Chocolate mini pizza"
+                    style="
+                      position: absolute;
+                      inset: 0;
+                      z-index: 5;
+                      display: block;
+                    "
+                  ></a>
+                </article>
+              </li>
+
+              <li class="slide" data-cat="salty">
+                <article class="pizza-card">
+                  <div class="bg-orbit" aria-hidden="true"></div>
+                  <div class="imgbox">
+                    <img
+                      class="pizza-img primary"
+                      src="./src/assets/img/minipizza-bacon.png"
+                      alt="Bacon mini pizza"
+                    />
+                    <img
+                      class="pizza-img hover"
+                      src="./src/assets/img/minipizza-halfbacon.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="pizza-name">Bacon</h3>
+                  <p class="tags">Salty • Mood</p>
+                  <a
+                    href="#"
+                    aria-label="Open Bacon mini pizza"
+                    style="
+                      position: absolute;
+                      inset: 0;
+                      z-index: 5;
+                      display: block;
+                    "
+                  ></a>
+                </article>
+              </li>
+
+              <li class="slide" data-cat="veggie">
+                <article class="pizza-card">
+                  <div class="bg-orbit" aria-hidden="true"></div>
+                  <div class="imgbox">
+                    <img
+                      class="pizza-img primary"
+                      src="./src/assets/img/minipizza-margarita.png"
+                      alt="Margherita mini pizza"
+                    />
+                    <img
+                      class="pizza-img hover"
+                      src="./src/assets/img/minipizza-halfmargarita.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="pizza-name">Margherita</h3>
+                  <p class="tags">Vege • Love</p>
+                  <a
+                    href="#"
+                    aria-label="Open Margherita mini pizza"
+                    style="
+                      position: absolute;
+                      inset: 0;
+                      z-index: 5;
+                      display: block;
+                    "
+                  ></a>
+                </article>
+              </li>
+
+              <li class="slide" data-cat="dessert">
+                <article class="pizza-card">
+                  <div class="bg-orbit" aria-hidden="true"></div>
+                  <div class="imgbox">
+                    <img
+                      class="pizza-img primary"
+                      src="./src/assets/img/minipizza-vanilla.png"
+                      alt="Vanilla mini pizza"
+                    />
+                    <img
+                      class="pizza-img hover"
+                      src="./src/assets/img/minipizza-halfvanilla.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="pizza-name">Vanilla</h3>
+                  <p class="tags">Sweet • Moments</p>
+                  <a
+                    href="#"
+                    aria-label="Open Vanilla mini pizza"
+                    style="
+                      position: absolute;
+                      inset: 0;
+                      z-index: 5;
+                      display: block;
+                    "
+                  ></a>
+                </article>
+              </li>
+
+              <li class="slide" data-cat="veggie">
+                <article class="pizza-card">
+                  <div class="bg-orbit" aria-hidden="true"></div>
+                  <div class="imgbox">
+                    <img
+                      class="pizza-img primary"
+                      src="./src/assets/img/minipizza-cheezy.png"
+                      alt="Cheezy mini pizza"
+                    />
+                    <img
+                      class="pizza-img hover"
+                      src="./src/assets/img/minipizza-halfcheezy.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="pizza-name">Cheezy</h3>
+                  <p class="tags">Salty • Mood</p>
+                  <a
+                    href="#"
+                    aria-label="Open Cheezy mini pizza"
+                    style="
+                      position: absolute;
+                      inset: 0;
+                      z-index: 5;
+                      display: block;
+                    "
+                  ></a>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="control-bar">
+          <button class="ctrl-btn prev" aria-label="Previous">←</button>
+          <div
+            class="ctrl-dots"
+            id="pizzaDots"
+            role="tablist"
+            aria-label="Slides navigation"
+          ></div>
+          <button class="ctrl-btn next" aria-label="Next">→</button>
+          <a class="view-all" href="#"
+            >View All <span aria-hidden="true">›</span></a
+          >
+        </div>
+
+        <div class="wave wave-top wave-white" aria-hidden="true">
+          <svg viewBox="0 0 1800 96" preserveAspectRatio="none">
+            <path
+              d="M1704.49 60.36C1671.34 55.34 1635.28 70.42 1601.93 66.01C1568.69 61.62 1537.8 37.68 1504.37 33.91C1471.06 30.15 1435.59 46.59 1402.09 43.44C1368.72 40.31 1336.94 17.56 1303.38 15.04C1269.95 12.54 1235.13 30.3 1201.54 28.42C1168.08 26.54 1135.46 5 1101.83 3.75C1068.34 2.5 1034.21 21.56 1000.56 20.93C967.05 20.31 933.66 0 900 0C866.34 0 832.95 20.31 799.44 20.93C765.79 21.56 731.66 2.5 698.17 3.75C664.54 5 631.93 26.55 598.46 28.42C564.86 30.3 530.04 12.54 496.62 15.04C463.07 17.55 431.29 40.3 397.91 43.44C364.41 46.58 328.95 30.15 295.63 33.91C262.2 37.69 231.3 61.62 198.07 66.01C164.72 70.42 128.66 55.33 95.51 60.36C62.51 65.36 32.75 90.09 0 96H1800C1767.25 90.1 1737.49 65.36 1704.49 60.36Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section class="discount-section" aria-labelledby="discount-title">
+        <div class="container">
+          <p class="section-subtitle section-subtitle-on-white">
+            Hot Deals • Fresh Offers • Tasty Discounts • Limited Time
+          </p>
+          <h2 class="section-title section-title--on-white tilt-left">
+            Weekly Mini Pizza™
+            <span class="highlight"><span> Discounts</span></span>
+          </h2>
+
+          <div class="discount-grid" id="discountGrid">
+            <article
+              class="discount-card"
+              tabindex="0"
+              data-tilt="-6"
+              data-bg="./src/assets/img/minipizza-cheezy.png"
+            >
+              <div class="discount-bg"></div>
+              <div class="discount-glare"></div>
+              <header class="discount-head">
+                <img
+                  class="discount-logo"
+                  src="./src/assets/img/logo-mini-pizza.png"
+                  alt="Mini Pizza™ logo"
+                />
+              </header>
+              <div class="discount-body">
+                <span class="discount-day">Tuesday</span>
+                <h3 class="discount-name">Happy Hour — Cheezy</h3>
+                <p class="discount-sub">Every Tuesday • 20% Off</p>
+                <p class="discount-desc">
+                  Tuesday is for cheese lovers! Grab your favorite Cheezy Mini
+                  Pizza™ and melt into 20% off — perfect for a midweek treat.
+                </p>
+              </div>
+              <div class="badge badge-tag">
+                <span class="txt">Online Deal</span>
+              </div>
+              <div class="discount-sticker"><span>-20%</span></div>
+              <div class="discount-ribbon">Hot</div>
+            </article>
+
+            <article
+              class="discount-card"
+              tabindex="0"
+              data-tilt="5"
+              data-bg="./src/assets/img/instagram-post-5.png"
+            >
+              <div class="discount-bg"></div>
+              <div class="discount-glare"></div>
+              <header class="discount-head">
+                <img
+                  class="discount-logo"
+                  src="./src/assets/img/logo-mini-pizza.png"
+                  alt="Mini Pizza™ logo"
+                />
+              </header>
+              <div class="discount-body">
+                <span class="discount-day">Every Day</span>
+                <h3 class="discount-name">Online Order Discount</h3>
+                <p class="discount-sub">Exclusive Web Deal • 15% Off</p>
+                <p class="discount-desc">
+                  Order online, skip the line! Enjoy 15% off every Mini Pizza™
+                  when you order directly through our website — fast, simple,
+                  tasty.
+                </p>
+              </div>
+              <div class="badge badge-tag">
+                <span class="txt">Online Deal</span>
+              </div>
+              <div class="discount-sticker"><span>-15%</span></div>
+              <div class="discount-ribbon">Online</div>
+            </article>
+
+            <article
+              class="discount-card"
+              tabindex="0"
+              data-tilt="-3.5"
+              data-bg="./src/assets/img/mini-pizzas-box.png"
+            >
+              <div class="discount-bg"></div>
+              <div class="discount-glare"></div>
+              <header class="discount-head">
+                <img
+                  class="discount-logo"
+                  src="./src/assets/img/logo-mini-pizza.png"
+                  alt="Mini Pizza™ logo"
+                />
+              </header>
+              <div class="discount-body">
+                <span class="discount-day">Thursday</span>
+                <h3 class="discount-name">2 Boxes — Your Choice</h3>
+                <p class="discount-sub">6-Pack each • $15 • 13:00–17:00</p>
+                <p class="discount-desc">
+                  Double the fun! Mix & match your favorite Mini Pizzas — any 2
+                  boxes for $15 only on Thursday 13-17 h. Perfect for sharing!
+                </p>
+              </div>
+              <div class="badge badge-tag"><span class="txt">Combo</span></div>
+              <div class="discount-sticker"><span>$15</span></div>
+              <div class="discount-ribbon">Deal</div>
+            </article>
+
+            <article
+              class="discount-card"
+              tabindex="0"
+              data-tilt="6"
+              data-bg="./src/assets/img/minipizza-veggie.png"
+            >
+              <div class="discount-bg"></div>
+              <div class="discount-glare"></div>
+              <header class="discount-head">
+                <img
+                  class="discount-logo"
+                  src="./src/assets/img/logo-mini-pizza.png"
+                  alt="Mini Pizza™ logo"
+                />
+              </header>
+              <div class="discount-body">
+                <span class="discount-day">Sunday</span>
+                <h3 class="discount-name">Organic Veggie Day</h3>
+                <p class="discount-sub">Fresh & Colorful • 25% Off</p>
+                <p class="discount-desc">
+                  Sundays go green! Enjoy 25% off our organic veggie Mini Pizza™
+                  — light, fresh, and full of color to brighten your weekend.
+                </p>
+              </div>
+              <div class="badge badge-tag">
+                <span class="txt">Green Day</span>
+              </div>
+              <div class="discount-sticker"><span>-25%</span></div>
+              <div class="discount-ribbon">Fresh</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="wave wave-top wave-red" aria-hidden="true">
+          <svg viewBox="0 0 1800 96" preserveAspectRatio="none">
+            <path
+              d="M1704.49 60.36C1671.34 55.34 1635.28 70.42 1601.93 66.01C1568.69 61.62 1537.8 37.68 1504.37 33.91C1471.06 30.15 1435.59 46.59 1402.09 43.44C1368.72 40.31 1336.94 17.56 1303.38 15.04C1269.95 12.54 1235.13 30.3 1201.54 28.42C1168.08 26.54 1135.46 5 1101.83 3.75C1068.34 2.5 1034.21 21.56 1000.56 20.93C967.05 20.31 933.66 0 900 0C866.34 0 832.95 20.31 799.44 20.93C765.79 21.56 731.66 2.5 698.17 3.75C664.54 5 631.93 26.55 598.46 28.42C564.86 30.3 530.04 12.54 496.62 15.04C463.07 17.55 431.29 40.3 397.91 43.44C364.41 46.58 328.95 30.15 295.63 33.91C262.2 37.69 231.3 61.62 198.07 66.01C164.72 70.42 128.66 55.33 95.51 60.36C62.51 65.36 32.75 90.09 0 96H1800C1767.25 90.1 1737.49 65.36 1704.49 60.36Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section class="social-media-section" aria-label="Follow us">
+        <div class="slider-ticker" aria-hidden="true">
+          <div class="ticker-track">
+            <span>• VEGETARIAN DONE BETTER</span>
+            <span>• BRINGING YOU THE BEST IN SNACKS, DESSERTS & DAIRY</span>
+            <span>• MINI PIZZAS • FRESH • CRISPY •</span>
+            <span>• VEGETARIAN DONE BETTER</span>
+            <span>• BRINGING YOU THE BEST IN SNACKS, DESSERTS & DAIRY</span>
+            <span>• MINI PIZZAS • FRESH • CRISPY •</span>
+          </div>
+        </div>
+
+        <div class="social-content">
+          <p class="section-subtitle">Follow • Like • Share • Tag • Repeat</p>
+          <h2 class="section-title section-title--on-orange tilt-left">
+            FOLLOW
+            <span class="highlight"><span>@minipizzasmile</span></span> FOR MORE
+          </h2>
+
+          <div class="insta-marquee">
+            <div class="insta-track" id="instaTrack">
+              <a class="insta-card" href="#" aria-label="Open Instagram post 1">
+                <img src="./src/assets/img/instagram-post-1.png" alt="Post 1" />
+                <span class="insta-badge"></span>
+                <div class="insta-hover">
+                  <span class="cta">View Post</span>
+                </div>
+              </a>
+
+              <a class="insta-card" href="#" aria-label="Open Instagram post 2">
+                <img src="./src/assets/img/instagram-post-2.png" alt="Post 2" />
+                <span class="insta-badge"></span>
+                <div class="insta-hover">
+                  <span class="cta">View Post</span>
+                </div>
+              </a>
+
+              <a class="insta-card" href="#" aria-label="Open Instagram post 3">
+                <img src="./src/assets/img/instagram-post-3.png" alt="Post 3" />
+                <span class="insta-badge"></span>
+                <div class="insta-hover">
+                  <span class="cta">View Post</span>
+                </div>
+              </a>
+
+              <a class="insta-card" href="#" aria-label="Open Instagram post 4">
+                <img src="./src/assets/img/instagram-post-4.png" alt="Post 4" />
+                <span class="insta-badge"></span>
+                <div class="insta-hover">
+                  <span class="cta">View Post</span>
+                </div>
+              </a>
+
+              <a class="insta-card" href="#" aria-label="Open Instagram post 5">
+                <img src="./src/assets/img/instagram-post-5.png" alt="Post 5" />
+                <span class="insta-badge"></span>
+                <div class="insta-hover">
+                  <span class="cta">View Post</span>
+                </div>
+              </a>
+
+              <a class="insta-card" href="#" aria-label="Open Instagram post 6">
+                <img src="./src/assets/img/mascot.png" alt="Post 6" />
+                <span class="insta-badge"></span>
+                <div class="insta-hover">
+                  <span class="cta">View Post</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i> Instagram</a
+            >
+            <a href="#" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i> Facebook</a
+            >
+            <a href="#" aria-label="TikTok"
+              ><i class="fa-brands fa-tiktok"></i> TikTok</a
+            >
+          </div>
+        </div>
+
+        <div class="wave wave-top wave-white" aria-hidden="true">
+          <svg viewBox="0 0 1800 96" preserveAspectRatio="none">
+            <path
+              d="M1704.49 60.36C1671.34 55.34 1635.28 70.42 1601.93 66.01C1568.69 61.62 1537.8 37.68 1504.37 33.91C1471.06 30.15 1435.59 46.59 1402.09 43.44C1368.72 40.31 1336.94 17.56 1303.38 15.04C1269.95 12.54 1235.13 30.3 1201.54 28.42C1168.08 26.54 1135.46 5 1101.83 3.75C1068.34 2.5 1034.21 21.56 1000.56 20.93C967.05 20.31 933.66 0 900 0C866.34 0 832.95 20.31 799.44 20.93C765.79 21.56 731.66 2.5 698.17 3.75C664.54 5 631.93 26.55 598.46 28.42C564.86 30.3 530.04 12.54 496.62 15.04C463.07 17.55 431.29 40.3 397.91 43.44C364.41 46.58 328.95 30.15 295.63 33.91C262.2 37.69 231.3 61.62 198.07 66.01C164.72 70.42 128.66 55.33 95.51 60.36C62.51 65.36 32.75 90.09 0 96H1800C1767.25 90.1 1737.49 65.36 1704.49 60.36Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section class="about-us-section" aria-labelledby="about-us-title">
+        <div class="container">
+          <p class="section-subtitle section-subtitle-on-white">
+            Stories • News • Updates • Behind the Scenes • Inspiration
+          </p>
+          <h2
+            id="about-us-title"
+            class="section-title section-title--on-white tilt-left"
+          >
+            Meet <span class="highlight"><span> Our Team</span></span>
+          </h2>
+          <a href="#" class="btn btn-dark">See All Posts</a>
+
+          <div class="about-us-desktop">
+            <div class="about-us-row">
+              <div
+                class="about-us-pills-left"
+                role="tablist"
+                aria-label="Team tabs (left)"
+              ></div>
+
+              <article class="about-us-card">
+                <div class="about-us-media">
+                  <img src="" alt="" />
+                </div>
+                <div class="about-us-body">
+                  <p class="about-us-date"></p>
+                  <h3 class="about-us-h"></h3>
+                  <p class="about-us-p"></p>
+                  <a class="about-us-readmore" href="#">Read More</a>
+                </div>
+              </article>
+
+              <div
+                class="about-us-pills-right"
+                role="tablist"
+                aria-label="Team tabs (right)"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="about-us-mobile"
+            role="tablist"
+            aria-label="Team accordion"
+          >
+            <div
+              class="about-us-acc-item"
+              data-panel="panel-latest"
+              data-color="#f2bc0b"
+            >
+              <button class="about-us-acc-toggle">
+                <span>LATEST NEWS</span><i aria-hidden="true">▾</i>
+              </button>
+              <div class="about-us-acc-panel" hidden>
+                <div class="about-us-acc-card">
+                  <img class="about-us-acc-img" src="" alt="" />
+                  <div class="about-us-acc-body">
+                    <p class="about-us-acc-date"></p>
+                    <h3 class="about-us-acc-title"></h3>
+                    <p class="about-us-acc-text"></p>
+                    <a class="about-us-acc-link" href="#">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="about-us-acc-item"
+              data-panel="panel-updates"
+              data-color="#FF4900"
+            >
+              <button class="about-us-acc-toggle">
+                <span>COMPANY UPDATES</span><i aria-hidden="true">▾</i>
+              </button>
+              <div class="about-us-acc-panel" hidden>
+                <div class="about-us-acc-card">
+                  <img class="about-us-acc-img" src="" alt="" />
+                  <div class="about-us-acc-body">
+                    <p class="about-us-acc-date"></p>
+                    <h3 class="about-us-acc-title"></h3>
+                    <p class="about-us-acc-text"></p>
+                    <a class="about-us-acc-link" href="#">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="about-us-acc-item"
+              data-panel="panel-product"
+              data-color="#ff6a00"
+            >
+              <button class="about-us-acc-toggle">
+                <span>PRODUCT NEWS</span><i aria-hidden="true">▾</i>
+              </button>
+              <div class="about-us-acc-panel" hidden>
+                <div class="about-us-acc-card">
+                  <img class="about-us-acc-img" src="" alt="" />
+                  <div class="about-us-acc-body">
+                    <p class="about-us-acc-date"></p>
+                    <h3 class="about-us-acc-title"></h3>
+                    <p class="about-us-acc-text"></p>
+                    <a class="about-us-acc-link" href="#">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-us-tab-source" hidden>
+            <button
+              class="about-us-pill"
+              id="tab-latest"
+              data-panel="panel-latest"
+              data-color="#f2bc0b"
+              aria-selected="true"
+              role="tab"
+            >
+              <span>LATEST NEWS</span>
+            </button>
+            <button
+              class="about-us-pill"
+              id="tab-updates"
+              data-panel="panel-updates"
+              data-color="#FF4900"
+              aria-selected="false"
+              role="tab"
+            >
+              <span>COMPANY UPDATES</span>
+            </button>
+            <button
+              class="about-us-pill"
+              id="tab-product"
+              data-panel="panel-product"
+              data-color="#ff6a00"
+              aria-selected="false"
+              role="tab"
+            >
+              <span>PRODUCT NEWS</span>
+            </button>
+          </div>
+
+          <template
+            id="panel-latest"
+            data-img="./src/assets/img/blog-vanilla.png"
+            data-alt="Vanilla mini pizza – sweet simplicity"
+            data-date="August 5, 2025"
+            data-title="Sweet Simplicity"
+            data-text="Light vanilla cream on a buttery, crisp base with a smooth, silky filling inside — simple, elegant, and irresistibly good.
+A touch of golden sweetness brings out the flavor, melting gently with every bite.
+Perfect for those who believe dessert should be both delicate and deeply satisfying."
+            data-link="#latest"
+          ></template>
+
+          <template
+            id="panel-updates"
+            data-img="./src/assets/img/blog-pizza.png"
+            data-alt="Company update – new ovens"
+            data-date="July 18, 2025"
+            data-title="New Ovens, Same Passion"
+            data-text="We’ve fired up brand-new ovens: crispier crusts, richer melt, faster bakes.
+Fresh recipes are on the way — same heart, even hotter flavor.
+Our kitchen is buzzing with creativity, testing bold new combinations that push flavor to the next level.
+Stay tuned — the next slice of perfection is already in the making."
+            data-link="#updates"
+          ></template>
+
+          <template
+            id="panel-product"
+            data-img="./src/assets/img/blog-pizza.png"
+            data-alt="Product news – operations & community"
+            data-date="June 30, 2025"
+            data-title="New Look, Delicious Bite"
+            data-text="We’ve refreshed our packaging to match the flavor inside — bold, fun, and unmistakably Mini Pizza™.
+The same crispy, cheesy goodness now comes in a design that’s easier to open, better for the planet, and impossible to ignore on the shelf."
+            data-link="#product"
+          ></template>
+        </div>
+
+        <div class="wave wave-top wave-footer" aria-hidden="true">
+          <svg viewBox="0 0 1800 96" preserveAspectRatio="none">
+            <path
+              d="M1704.49 60.36C1671.34 55.34 1635.28 70.42 1601.93 66.01C1568.69 61.62 1537.8 37.68 1504.37 33.91C1471.06 30.15 1435.59 46.59 1402.09 43.44C1368.72 40.31 1336.94 17.56 1303.38 15.04C1269.95 12.54 1235.13 30.3 1201.54 28.42C1168.08 26.54 1135.46 5 1101.83 3.75C1068.34 2.5 1034.21 21.56 1000.56 20.93C967.05 20.31 933.66 0 900 0C866.34 0 832.95 20.31 799.44 20.93C765.79 21.56 731.66 2.5 698.17 3.75C664.54 5 631.93 26.55 598.46 28.42C564.86 30.3 530.04 12.54 496.62 15.04C463.07 17.55 431.29 40.3 397.91 43.44C364.41 46.58 328.95 30.15 295.63 33.91C262.2 37.69 231.3 61.62 198.07 66.01C164.72 70.42 128.66 55.33 95.51 60.36C62.51 65.36 32.75 90.09 0 96H1800C1767.25 90.1 1737.49 65.36 1704.49 60.36Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <footer class="site-footer" aria-label="Website footer">
+        <div
+          class="footer-cta-card"
+          role="region"
+          aria-label="Locations teaser"
+        >
+          <button class="smile-trigger footer-badge" aria-label="Celebrate">
+            <img
+              src="./src/assets/img/logo.png"
+              alt="Smile icon"
+              class="smile-icon"
+            />
+          </button>
+          <p class="section-subtitle section-title-on-orange">
+            Locations • Stores • Subscription • Visit Us
+          </p>
+          <h2 class="section-title section-title--on-orange tilt-left">
+            <span class="highlight"><span>Find a Store </span></span> Near You
+          </h2>
+
+          <p class="cta-text">
+            See our shops, hours, and pickup points across the city.
+          </p>
+          <a class="btn btn-dark" href="#locations">View Locations</a>
+        </div>
+
+        <section class="signup-strip" aria-label="Email signup">
+          <h4 class="signup-heading">
+            Sign up to receive offers, updates & more
+          </h4>
+          <form class="signup-form" action="#" method="post">
+            <label class="visually-hidden" for="signup-email"
+              >Email address</label
+            >
+            <input
+              id="signup-email"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit" class="signup-submit">Submit</button>
+          </form>
+        </section>
+
+        <div class="footer-main">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/" class="brand">
+                <img
+                  src="./src/assets/img/logo-mini-pizza.png"
+                  alt="Brand logo"
+                />
+              </a>
+              <p class="brand-tag">#minipizzasmile</p>
+              <div class="social">
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="TikTok"
+                  ><i class="fab fa-tiktok"></i
+                ></a>
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="YouTube"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+              </div>
+            </div>
+
+            <nav class="footer-col">
+              <h5>Shop</h5>
+              <ul>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Where to Buy</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Gift Cards</a></li>
+              </ul>
+            </nav>
+
+            <nav class="footer-col">
+              <h5>Company</h5>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </nav>
+
+            <nav class="footer-col">
+              <h5>Legal</h5>
+              <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+              </ul>
+            </nav>
+
+            <div class="footer-col">
+              <h5>Contact</h5>
+              <ul class="contact">
+                <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                <li>
+                  <a href="mailto:info@yourbrand.com">info@yourbrand.com</a>
+                </li>
+                <li>123 Creative Avenue, San Francisco, CA</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>
+              © <span id="year"></span>
+              <a
+                href="https://themeforest.net/user/yourusername"
+                target="_blank"
+                rel="noopener"
+                >sancoza</a
+              >. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Observer.min.js"></script>
+
+    <script type="module" src="./src/assets/js/main.js"></script>
+  </body>
+</html>
