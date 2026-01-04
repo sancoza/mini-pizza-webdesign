@@ -1,0 +1,191 @@
+/* === Sekcija === */
+.social-media-section {
+  background: #ff3b00;
+  color: #fff;
+  overflow: hidden;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+
+}
+
+/* (ostavi svoj gornji ticker kako već imaš) */
+
+/* === Instagram traka (stalni loop) === */
+.insta-marquee {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  margin: 70px 0;
+}
+
+/* fleks traka bez praznog prostora */
+.insta-track {
+  display: flex;
+  gap: 20px; /* NEMA praznog prostora */
+  width: max-content;
+  animation: instaScroll 32s linear infinite;
+  will-change: transform;
+}
+@keyframes instaScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  } /* pošto dupliramo sadržaj */
+}
+.social-links {
+  display: flex;
+  justify-content: center;   /* centriranje horizontalno */
+  align-items: center;       /* vertikalno centriranje */
+  gap: 28px;                 /* razmak između ikonica */
+  margin: 50px 0;
+}
+
+.social-links a {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* razmak između ikone i teksta */
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.social-links a i {
+  font-size: 18px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efekat na hover */
+.social-links a:hover {
+  color: #F2BC0B; /* žuto-zlatna nijansa */
+}
+
+.social-links a:hover i {
+  transform: scale(1.2) rotate(-5deg);
+  color: #F2BC0B;
+}
+
+/* Jedna “kartica” posta */
+.insta-card {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  flex: 0 0 auto; /* fiksna širina, bez rastezanja */
+  border-radius: 16px;
+  overflow: hidden;
+  isolation: isolate; /* da overlay bude iznad slike */
+  transform: translateZ(0); /* bolje performanse */
+}
+.social-content {
+  padding: 50px 0 100px 0;
+}
+.insta-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* Badge 'Instagram' uvek gore-levo */
+.insta-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+
+}
+.insta-badge::before {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: url("../../img/logo-mini-pizza.png") center/contain no-repeat;
+  
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Hover overlay (potamnjenje + “View Post”) */
+/* === Hover overlay (skriven dok nije hover) === */
+.insta-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === CTA dugme na sredini, ali skriveno dok nije hover === */
+.insta-hover .cta {
+ 
+  color: #fff;
+  font-weight: 900;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+ 
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* === Pojavljivanje na hover === */
+.insta-card:hover .insta-hover {
+  opacity: 1;
+}
+.insta-card:hover .insta-hover .cta {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === Efekat malog sjaja na hover === */
+.insta-card:hover .insta-hover .cta:hover {
+
+  color: #fff;
+
+}
+
+
+/* Efekti na hover/focus */
+.insta-card:hover img,
+.insta-card:focus-within img {
+  transform: scale(1.05);
+}
+.insta-card:hover .insta-hover,
+.insta-card:focus-within .insta-hover {
+  opacity: 1;
+}
+
+/* Pauza animacije kad je kursor iznad trake */
+.insta-marquee:hover .insta-track {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .insta-track {
+    animation: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .insta-card {
+    width: 200px;
+    height: 200px;
+  }
+}

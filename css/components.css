@@ -1,0 +1,216 @@
+/* ========================================== */
+/* UNIVERSAL BUTTON STYLE */
+/* ========================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #FF4900;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  transform: rotate(-2deg);
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+ 
+}
+
+.btn span {
+  transition: transform 0.3s ease;
+}
+
+/* === HOVER STATE === */
+.btn:hover {
+  transform: rotate(0deg) scale(1.05); 
+
+}
+
+/* Strelica lagano ide napred */
+.btn:hover span {
+  transform: translateX(5px);
+}
+
+/* === SHINE EFFECT === */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.btn:hover::before {
+  left: 130%;
+}
+
+/* === VARIJANTE === */
+.btn-light {
+  background: #fff;
+  color: #e42d23;
+}
+
+.btn-dark {
+  background: #111;
+  color: #fff;
+}
+
+.btn-yellow {
+  background: #ffcf33;
+  color: #222;
+}
+
+
+
+
+
+/* Wavy divider */
+.wave {
+  position: relative;
+  width: 100%;
+  line-height: 0; /* skini prazni razmak */
+  color: currentColor; /* fallback, menja se modifierima */
+}
+.wave svg {
+  display: block;
+  width: 100%;
+  height: var(--wave-h, 96px);
+}
+.wave path {
+  fill: currentColor;
+}
+
+/* Placement helpers */
+.wave-top {
+  margin-bottom: -1px;
+}
+.wave-bottom {
+  margin-top: -1px;
+}
+
+/* Color modifiers (biraj prema boji POZADINE na koju se talas oslanja) */
+.wave-red {
+  color: #FF4900;
+}
+.wave-white {
+  color: #fff;
+}
+.wave-footer {
+  color: #111;
+}
+
+/* ===== UNIVERSAL SECTION TITLES ===== */
+
+.section-title{
+  /* default varijante */
+  --title-ink: #FF4900;
+  --pill-bg:   #FF4900;
+  --pill-ink:  #fff;
+
+
+  margin: 30px auto;
+  font-weight: 900;
+  font-size: clamp(32px, 6vw, 68px);
+  letter-spacing: .5px;
+  color: var(--title-ink);
+  text-align: center;
+  position: relative;
+  text-shadow: var(--title-shadow);
+}
+
+/* deo u pravougaoniku */
+.section-title .highlight {
+  display: inline-block;
+  padding: .2em .45em;
+  margin: 0 .1em;
+  background: var(--pill-bg);
+  color: var(--pill-ink);
+  border-radius: 8px;
+  line-height: 1;
+  transform-origin: center;
+  transform: rotate(-2deg); /* default blago nadesno */
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  text-shadow: none;
+}
+
+/* ========= TEME ========= */
+.section-title--on-white{
+  --title-ink: #111;
+  --pill-bg:  #111;
+  --pill-ink: #fff;
+
+ 
+}
+
+/* Primer varijante za tamnu/narandžastu pozadinu (ako zatreba) */
+.section-title--on-orange{
+  --title-ink: #fff;
+  --pill-bg:  #fff;
+  --pill-ink: #FF4900;
+  --title-shadow: 5px 4px 0 rgba(0,0,0,.18);
+}
+
+.section-subtitle{
+  margin: 0;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  text-transform: uppercase;
+  opacity: 0.7;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+}
+.section-subtitle-on-white{
+  color: #111;
+}
+/* ========= ROTACIJE ========= */
+/* Blago nadesno (default) */
+.section-title.tilt-right .highlight {
+  transform: rotate(2deg);
+}
+
+/* Blago nalevo */
+.section-title.tilt-left .highlight {
+  transform: rotate(-2deg);
+}
+
+/* ========= Opcione varijacije ========= */
+.section-title.is-left  { text-align: left; }
+.section-title.is-right { text-align: right; }
+
+.section-title.pill .highlight {
+  border-radius: 999px;
+}
+
+.section-title.is-compact .highlight {
+  padding: .05em .3em;
+}
+
+@media (max-width: 560px){
+  .section-title { line-height: 1.1; }
+}
+
+
+/* Small hover effect if used as clickable heading */
+.section-title:hover .highlight {
+  transform: rotate(0deg) scale(1.05);
+  transition: transform 0.25s ease;
+}

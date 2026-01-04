@@ -1,0 +1,296 @@
+:root {
+  --about-us-max: 1200px;
+  --about-us-radius: 26px;
+  --about-us-gap: clamp(6px, 2.2vw, 8px);
+  --about-us-bg: #fbfaf7;
+  --about-us-ink: #111;
+  --about-us-card: #f2bc0b;
+  --about-us-desktop-h: 450px;
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+
+.about-us-section {
+  background: #fff;
+  color: var(--about-us-ink);
+  padding: clamp(24px, 5vw, 0px) 16px;
+  overflow-y: hidden !important;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+/* Header (opciono) */
+.about-us-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(16px, 3.2vw, 36px);
+}
+.about-us-header h2 {
+  margin: 0;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(28px, 7vw, 72px);
+  line-height: 0.95;
+}
+.about-us-cta {
+  background: #eee;
+  border-radius: 999px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 800;
+}
+.about-us-cta:hover {
+  background: #e5e5e5;
+}
+
+/* =========================================================
+   DESKTOP (≥1025px): HORIZONTAL LAYOUT
+========================================================= */
+@media (min-width: 1025px) {
+  .about-us-desktop {
+    display: block;
+    margin: 50px 0 180px 0;
+  }
+  .about-us-mobile {
+    display: none;
+  }
+
+  .about-us-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: stretch;
+    height: var(--about-us-desktop-h);
+    overflow: hidden;
+    transition: grid-template-columns 0.4s ease;
+  }
+
+  .about-us-pills-left,
+  .about-us-pills-right {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: var(--about-us-gap);
+    height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-us-pill {
+    border: 0;
+    cursor: pointer;
+    color: #111;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: 18px 12px;
+    min-height: var(--about-us-desktop-h);
+    border-radius: 32px;
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
+    transition: filter 0.2s ease;
+  }
+  .about-us-pill:hover {
+    filter: brightness(0.96);
+  }
+  .about-us-pill[aria-selected='true'] {
+    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.28);
+  }
+
+  /* demo boje pilova */
+  #tab-latest {
+    background: #f2bc0b;
+  }
+  #tab-updates {
+    background: #ff4900;
+  }
+  #tab-product {
+    background: #ff6a00;
+  }
+
+  .about-us-card {
+    background: var(--about-us-card);
+    border-radius: var(--about-us-radius);
+    display: grid;
+    grid-template-columns: minmax(260px, 50%) 1fr;
+    gap: clamp(12px, 2vw, 24px);
+    padding: clamp(12px, 2vw, 18px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    min-height: var(--about-us-desktop-h);
+    transition: background 0.25s ease, transform 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 0 10px;
+  }
+  .about-us-media {
+    overflow: hidden;
+    border-radius: calc(var(--about-us-radius) - 8px);
+  }
+  .about-us-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.01);
+    display: block;
+  }
+
+  .about-us-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ključ: sve levo */
+    justify-content: flex-start; /* gore/levo */
+    text-align: left; /* tekst levo */
+  }
+  .about-us-date {
+    opacity: 0.75;
+    font-weight: 700;
+    margin: 4px 0 10px;
+  }
+  .about-us-h {
+    margin: 1rem 0 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(28px, 4.6vw, 52px);
+    line-height: 0.98;
+  }
+  .about-us-p {
+    margin: 28px 0 48px;
+    line-height: 1.5;
+    max-width: 60ch;
+  }
+
+  /* Dugme levo, samo koliko mu treba */
+  .about-us-readmore {
+    display: inline-block;
+    width: auto;
+    margin-top: 10px; /* bez auto centriranja */
+    background: #fff;
+    color: #111;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 10px 18px;
+    border-radius: 12px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    text-align: left;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .about-us-readmore:hover {
+    filter: brightness(0.98);
+  }
+}
+
+/* =========================================================
+   MOBILE (≤980px): VERTIKALNI ACCORDION
+========================================================= */
+.about-us-mobile {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .about-us-desktop {
+    display: none;
+  }
+  .about-us-mobile {
+    display: block;
+  }
+
+  .about-us-acc-item {
+    border-radius: 22px;
+    background: #eee;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  .about-us-acc-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border: 0;
+    cursor: pointer;
+    color: #111;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 22px;
+    background: #f2bc0b; /* prva */
+  }
+  .about-us-acc-item:nth-child(2) .about-us-acc-toggle {
+    background: #ff4900;
+  }
+  .about-us-acc-item:nth-child(3) .about-us-acc-toggle {
+    background: #ff6a00;
+  }
+
+  .about-us-acc-toggle i {
+    font-style: normal;
+    opacity: 0.8;
+    transition: transform 0.2s ease;
+  }
+  .about-us-acc-item.is-open .about-us-acc-toggle i {
+    transform: rotate(180deg);
+  }
+
+  .about-us-acc-panel {
+    padding: 0 8px 12px;
+  }
+  .about-us-acc-card {
+    background: var(--about-us-bg);
+    border-radius: 20px;
+    padding: 12px;
+  }
+  .about-us-acc-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+  }
+  .about-us-acc-body {
+    padding: 6px 4px;
+    text-align: left;
+  }
+  .about-us-acc-date {
+    opacity: 0.75;
+    font-weight: 700;
+    margin: 6px 0;
+  }
+  .about-us-acc-title {
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 4px 0;
+  }
+  .about-us-acc-text {
+    margin: 6px 0 14px;
+  }
+
+  /* Dugme levo i na mobilu */
+  .about-us-acc-link {
+    display: inline-block;
+    width: auto;
+    margin-top: 8px;
+    background: #fff;
+    color: #111;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 10px 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
+/* A11y – smanji animacije */
+@media (prefers-reduced-motion: reduce) {
+  .about-us-pill,
+  .about-us-readmore,
+  .about-us-acc-toggle i {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,530 @@
+/* ================================
+   DISCOUNT SECTION – ORANGE THEME
+   ================================ */
+
+.discount-section {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: clamp(20px, 10vw, 20px) 16px;
+  padding-bottom: 0;
+}
+
+.discount-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.discount-section .section-title {
+  margin-bottom: 80px;
+}
+
+/* ===== Grid ===== */
+.discount-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(18px, 2vw, 26px);
+  justify-items: center;
+  padding: 0 0 80px 0;
+}
+
+/* ===== Card ===== */
+.discount-card {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fff;
+  background: #ff4900;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  backface-visibility: hidden;    /* sprečava flicker */
+  transform: translateZ(0);   
+}
+.discount-card::after,
+.discount-bg,
+.discount-glare {
+  border-radius: inherit;         /* čuva zaobljene ivice u svim slojevima */
+}
+/* === Efekat da cela kartica postane narandžasta === */
+.discount-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.06) 0px,
+      rgba(255,255,255,0.06) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    #ff4900;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+
+.discount-card:hover::after {
+  opacity: 1;
+}
+
+
+
+/* ===== Background layers ===== */
+.discount-bg {
+  position: absolute;
+  inset: 0;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(0.8) saturate(1.2);
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+.discount-card:hover .discount-bg {
+  filter: brightness(0.9) saturate(1.3);
+
+  opacity: 0.3; /* lagano prozire kroz narandžasti sloj */
+}
+
+/* ===== Glare ===== */
+.discount-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.25), transparent 50%, rgba(255,255,255,0.15));
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+/* ===== Head ===== */
+.discount-head {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+}
+
+/* ===== Logo (pojavi se na hover) ===== */
+.discount-logo {
+  height: 32px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.discount-card:hover .discount-logo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== Day Tag ===== */
+.discount-day {
+  font-weight: 800;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #ffffffa7;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 3;
+}
+
+/* ===== Body ===== */
+.discount-body {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 60px;
+  z-index: 3;
+}
+.discount-name {
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.1;
+  font-family: 'Englebert', cursive;
+  padding: 10px 0;
+  color: #111;
+  text-shadow:
+  -1px -1px 0 #fff,
+   1px -1px 0 #fff,
+  -1px  1px 0 #fff,
+   1px  1px 0 #fff,
+   0 0 4px #fff;
+}
+.discount-card:hover .discount-name {
+  text-shadow:none;
+  color: #fff;
+  font-weight: 400;
+}
+.discount-sub {
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: #111;
+  opacity: 0.95;
+   background: #ffffffa7;
+  border-radius: 5px;
+  padding: 3px 5px;
+  display: inline-block;
+  z-index: 3;
+}
+.discount-card:hover .discount-sub {
+  background: #F2BC0B;
+  color: #111;
+  opacity: 1;
+}
+.discount-desc {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #fff5ec;
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 10px 14px;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 3;
+}
+.discount-card:hover .discount-desc {
+  background: none;
+  color: #fff;
+  opacity: 1;
+}
+
+/* ===== Sticker (ugao) ===== */
+.discount-sticker {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border: 2px solid #ff4900;
+  border-top-left-radius: 90px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.12);
+
+}
+.discount-sticker span {
+  font: 900 22px/1 system-ui, sans-serif;
+  color: #ff4900;
+}
+
+/* ===== Ribbon ===== */
+.discount-ribbon {
+  opacity: 0;
+  position: absolute;
+  top: 18px;
+  right: -44px;
+  width: 180px;
+  text-align: center;
+  background:#F2BC0B;
+  color: #111;
+  font: 800 12px/30px system-ui;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: translateY(-10px) rotate(35deg);
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 20px rgba(255,73,0,0.3);
+  z-index: 15;
+}
+.discount-card:hover .discount-ribbon {
+  opacity: 1;
+  transform: translateY(0) rotate(35deg);
+}
+
+/* ===== Badge Tag (etiketa) ===== */
+
+.badge-tag {
+  left: 0;
+  top: 14px;
+  background: #ff4900;
+  color: #111;
+  padding: 10px 14px 10px 18px;
+  border-radius: 0 5px 5px 0;
+  position: absolute;
+  background: #ffffff70;
+  z-index: 5;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+/* === Nestane kad se hoveruje kartica === */
+.discount-card:hover .badge-tag {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* === Svetleći krug (LED efekat) === */
+/* === Svetleći krug (LED efekat) – narandžasto blinkanje === */
+.badge-tag::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #ff4900 40%, #ff7433 70%, #a62b00 100%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow:
+    0 0 6px rgba(255, 73, 0, 0.9),
+    0 0 14px rgba(255, 100, 0, 0.8),
+    0 0 24px rgba(255, 73, 0, 0.6),
+    inset 0 0 2px rgba(255, 255, 255, 0.9);
+  animation: activeBlink 1.3s infinite ease-in-out;
+}
+
+/* === Animacija treperenja (mekani puls narandžaste svetlosti) === */
+@keyframes activeBlink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow:
+      0 0 8px rgba(255, 73, 0, 1),
+      0 0 18px rgba(255, 100, 0, 0.9),
+      0 0 30px rgba(255, 73, 0, 0.7),
+      inset 0 0 3px rgba(255,255,255,0.8);
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow:
+      0 0 4px rgba(255, 73, 0, 0.5),
+      0 0 8px rgba(255, 100, 0, 0.4),
+      0 0 14px rgba(255, 73, 0, 0.3),
+      inset 0 0 1px rgba(255,255,255,0.6);
+    transform: translateY(-50%) scale(0.9);
+  }
+}
+
+
+/* === Tekst === */
+.badge-tag .txt {
+  font-family: 'Englebert', cursive;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+
+
+/* === Gornji desni ugaoni thumbnail (pojavljuje se na hover) === */
+.corner-thumb{
+  position: absolute;
+  top: 0; right: 0;
+  width: clamp(72px, 22vw, 110px);
+  height: clamp(72px, 22vw, 110px);
+  background: center/cover no-repeat;
+  
+  border-bottom-left-radius: 90px;       /* ključ za “četvrt kruga” gore-desno */
+  border-top-right-radius: 20px;       /* prati spoljašnji radius kartice */
+  border-top-left-radius: 45px;
+  border-bottom-right-radius: 0;
+ 
+  z-index: 6;
+  pointer-events: none;
+
+  /* animacija ulaska na hover */
+  opacity: 0;
+  transform: translate(16px,-16px) scale(.9);
+  transition: opacity .45s ease, transform .45s ease, filter .3s ease;
+}
+
+/* pojavi se kad je kartica u hoveru */
+.discount-card:hover .corner-thumb{
+  opacity: 1;
+  transform: translate(0,0) scale(1.5);
+}
+
+/* (opciono) malo pojačaj kontrast kad je preko narandžaste */
+.discount-card:hover .corner-thumb{
+  filter: saturate(1.1) contrast(1.05);
+}
+
+/* ============================= */
+/* 📱 RESPONSIVE — DISCOUNT SECTION */
+/* ============================= */
+
+/* --- Tableti i manji laptopovi (max 1024px) --- */
+@media (max-width: 1024px) {
+  .discount-section {
+    padding: 60px 24px;
+    padding-bottom: 0;
+  }
+  .discount-section .section-title {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  .discount-grid {
+    gap: 24px;
+  }
+  .discount-card {
+    height: 440px;
+    max-width: 320px;
+  }
+  .discount-body {
+    bottom: 50px;
+  }
+  .discount-name {
+    font-size: 26px;
+  }
+  .discount-desc {
+    font-size: 14px;
+  }
+}
+
+/* --- Tableti u portretu i veći telefoni (max 768px) --- */
+@media (max-width: 768px) {
+  .discount-section {
+    padding: 50px 20px;
+    padding-bottom: 0;
+  }
+  .discount-section .section-title {
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 50px;
+  }
+
+  .discount-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .discount-card {
+    height: 420px;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .discount-day {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .discount-name {
+    font-size: 22px;
+  }
+
+  .discount-sub {
+    font-size: 13px;
+  }
+
+  .discount-desc {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .discount-sticker {
+    width: 70px;
+    height: 70px;
+  }
+
+  .discount-sticker span {
+    font-size: 18px;
+  }
+
+  .discount-ribbon {
+    width: 150px;
+    font-size: 10px;
+    right: -36px;
+  }
+
+  .badge-tag {
+    padding: 8px 12px 8px 16px;
+    font-size: 13px;
+  }
+
+  .corner-thumb {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* --- Mali telefoni (max 480px) --- */
+@media (max-width: 480px) {
+  .discount-section {
+    padding: 40px 16px;
+  }
+
+  .discount-section .section-title {
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+
+  .discount-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .discount-card {
+    height: auto;
+    min-height: 420px;
+  }
+
+  .discount-body {
+    position: relative;
+    bottom: 0;
+    padding-bottom: 24px;
+  }
+
+  .discount-day {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .discount-name {
+    font-size: 24px;
+  }
+
+  .discount-sub {
+    font-size: 13px;
+  }
+
+  .discount-desc {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .discount-sticker {
+    width: 64px;
+    height: 64px;
+    border-top-left-radius: 64px;
+  }
+
+  .discount-ribbon {
+    display: none; /* smanjiti gužvu */
+  }
+
+  .badge-tag {
+    top: 10px;
+    font-size: 12px;
+    padding: 6px 10px 6px 14px;
+  }
+
+  .badge-tag::before {
+    width: 8px;
+    height: 8px;
+    left: 6px;
+  }
+
+  .corner-thumb {
+    width: 70px;
+    height: 70px;
+  }
+}

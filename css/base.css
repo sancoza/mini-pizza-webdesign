@@ -1,0 +1,126 @@
+/* =========================================================
+   BASE STYLES
+   Mini Pizza™ Theme
+   ---------------------------------------------------------
+   - Variables
+   - Typography
+   - Global resets
+   - Containers
+   ========================================================= */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Englebert&family=Lilita+One&display=swap');
+
+
+/* =========================================================
+   1. ROOT VARIABLES
+   ========================================================= */
+:root {
+  /* Typography */
+  --font-primary: 'Englebert', cursive;
+  --font-secondary: 'Lilita One', sans-serif;
+
+  /* Colors */
+  --ink: #fff;                  /* text on dark backgrounds */
+  --bg: #000;                   /* black header/footer */
+  --accent: #FF4900;            /* accent orange */ /* #f2a2a;            /* accent red */
+  --overlay: rgba(0, 0, 0, 0.86);
+  --menu-w: min(360px, 86vw);
+  --container: 1200px;
+
+  /* Drawer & Section Colors */
+  --drawer-bg: #FF4900;
+  --drawer-ink: #fff;
+  --page-bg: #ffffff;
+  --text-main: #111;
+
+  /* Box animation variables (if used later) */
+  --box-front-left: 22%;
+  --box-front-top: 34px;
+  --box-back-left: -125%;
+  --box-back-top: 0;
+  --box-back-scale: 0.94;
+
+  
+}
+
+/* =========================================================
+   2. GLOBAL RESETS
+   ========================================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  background: var(--page-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* =========================================================
+   3. CONTAINER
+   ========================================================= */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* =========================================================
+   4. TYPOGRAPHY BASICS
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.08;
+  padding: 20px 0 60px 0;
+  transform: scaleX(0.9);
+  display: inline-block;
+  text-shadow: 5px 4px 0px #ec4401;
+}
+
+.icon {
+  width: 68px;
+  height: auto;
+  vertical-align: middle;
+  margin: 0 6px;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(30px, 7vw, 60px);
+  font-weight: 900;
+  margin: 20px 0;
+  line-height: 1;
+}
+
+
+/* Base section helpers */
+.section-red {
+  background: #ff6a00;
+  color: #fff;
+}
+.section-white {
+  background: #fff;
+  color: #333;
+}
+
+/* =========================================================
+   6. UTILITIES
+   ========================================================= */
+.no-scroll { overflow: hidden; }

@@ -1,0 +1,60 @@
+/* =========================================================
+   MINI PIZZA™ THEME - MAIN STYLESHEET
+   Author: [Your Name]
+   Version: 1.0
+   Description: This file imports and organizes all style sections
+                used throughout the Mini Pizza HTML template.
+   ========================================================= */
+
+/* =========================================================
+   1. BASE STYLES
+   ---------------------------------------------------------
+   - Global resets
+   - Typography
+   - Color variables
+   - Global link and body settings
+   ========================================================= */
+@import url("./base.css");
+
+/* =========================================================
+   2. LAYOUT
+   ---------------------------------------------------------
+   - Grid and container structure
+   - Header, footer and main sections
+   ========================================================= */
+@import url("./layout.css");
+
+/* =========================================================
+   3. COMPONENTS
+   ---------------------------------------------------------
+   - Buttons, cards, forms, modals, and UI elements
+   ========================================================= */
+@import url("./components.css");
+
+/* =========================================================
+   4. PAGE-SPECIFIC STYLES
+   ---------------------------------------------------------
+   - Homepage, About, Contact, Blog, etc.
+   ========================================================= */
+@import url("../css/pages/blogs-page.css");
+
+/* =========================================================
+   4.1 SECTION-SPECIFIC STYLES
+   ---------------------------------------------------------
+   - Hero Pack, Features, Testimonials, etc.
+   ========================================================= */
+@import url("./sections/hero-pack.css");
+@import url("./sections/mp-billboard.css");
+@import url("./sections/slider-section.css");
+@import url("./sections/discount-section.css");
+@import url("./sections/aboutus-section.css");
+@import url("./sections/social-media-section.css");
+@import url("./sections/footer.css");
+
+
+/* =========================================================
+   5. UTILITIES (OPTIONAL)
+   ---------------------------------------------------------
+   - Helper classes like .text-center, .hidden, .mt-*, .p-*
+   ========================================================= */
+/* Add additional utilities if needed */

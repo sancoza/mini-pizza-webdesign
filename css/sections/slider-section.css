@@ -1,0 +1,249 @@
+/* ====== Osnova ====== */
+.slider-section {
+  background: #ff4900;
+}
+.slider-head {
+  text-align: center;
+  padding-inline: 12px;
+}
+
+
+/* ====== Ticker (gore) ====== */
+.slider-ticker {
+  --tbg: #fff;
+  background: var(--tbg);
+  color: #ff4900;
+  padding: 6px 0;
+  overflow: hidden;
+  margin: 0;
+}
+.slider-ticker .ticker-track {
+  display: inline-flex;
+  gap: 36px;
+  padding-inline: 16px;
+  white-space: nowrap;
+  font-weight: 900;
+  text-transform: uppercase;
+  animation: tickerMove var(--dur, 46s) linear infinite;
+}
+@keyframes tickerMove {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.slider-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* ====== Filteri ====== */
+.slider-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.filter-pill {
+  border: 0;
+  cursor: pointer;
+   font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #9f2e01;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 2px;
+}
+.filter-pill.is-active {
+  background: #fb7202;
+}
+
+/* ====== Slider ====== */
+.slider-wrap {
+  position: relative;
+  margin-top: 8px;
+  /* full-bleed rail (po želji zadrži) */
+  width: 100%;
+}
+.slider-viewport {
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  gap: clamp(16px, 3vw, 28px);
+  will-change: transform;
+  padding: 16px 12px 8px;
+  touch-action: pan-y;
+  justify-content: flex-start; /* centriramo dinamički iz JS-a kad malo kartica */
+}
+.slider-track.is-centered {
+  justify-content: center;
+}
+
+.slide {
+  flex: 0 0 clamp(220px, 30vw, 320px);
+}
+
+/* ====== Kartica + hover slika ====== */
+.pizza-card {
+  position: relative;
+  padding: 16px 16px 14px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+/* Uklonjen blur shadow “bg-orbit” */
+.bg-orbit {
+  display: none;
+}
+
+/* Boks za obe slike (fiksna kutija za jednak prikaz) */
+.pizza-card .imgbox {
+  position: relative;
+  width: 78%;
+  margin: 14px auto 6px;
+  aspect-ratio: 1 / 1; /* sve slike unutar istog kvadrata */
+  overflow: visible;
+}
+
+/* Osnovno za obe slike */
+.pizza-card .pizza-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ne seče – sve lepo staje */
+  will-change: opacity, transform;
+  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* primarna (startna) slika */
+.pizza-card .pizza-img.primary {
+  opacity: 1;
+  transform: translateZ(0) scale(1);
+  z-index: 1;
+}
+
+/* hover slika – ista kutija, ista veličina; glatko se pojavljuje i malko uveća */
+.pizza-card .pizza-img.hover {
+  opacity: 0;
+  transform: translateZ(0) scale(1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* efekat zamene + uvećanje hover varijante */
+.pizza-card:hover .pizza-img.hover {
+  opacity: 1;
+  transform: translateZ(0) scale(1.12);
+}
+.pizza-card:hover .pizza-img.primary {
+  opacity: 0;
+  transform: translateZ(0) scale(0.98);
+}
+
+/* naziv i tagovi */
+.pizza-name {
+  margin: 0.4rem 0 0.25rem;
+  font-weight: 700;
+  font-size: clamp(16px, 2.6vw, 22px);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tags {
+  margin: 0;
+  opacity: 0.75;
+  color: #fff;
+}
+
+/* animacija lebdenja kartice */
+.pizza-card:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+
+/* ====== Donja kontrolna traka ====== */
+.control-bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+  background: #1e1a19;
+  color: #fff;
+  padding: 12px;
+  border-radius: 18px;
+  max-width: 780px;
+  margin: 60px auto 80px auto;
+  box-shadow: none; /* traženo: bez senke */
+}
+.ctrl-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  background: #fff;
+  color: #111; /* ispravljeno (pre je bilo #fff na #fff) */
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+.ctrl-btn:hover {
+  filter: brightness(0.95);
+}
+
+.ctrl-dots {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+.ctrl-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 0;
+  background: #ff4900;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: width 0.25s ease, background 0.2s ease, opacity 0.2s ease;
+}
+.ctrl-dots button[aria-current='true'] {
+  width: 28px;
+  height: 10px;
+  border-radius: 999px;
+  background: #fff;
+  opacity: 1;
+}
+
+.view-all {
+  margin-left: auto;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.view-all span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+@media (max-width: 560px) {
+  .control-bar {
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+  }
+  .view-all {
+    grid-column: 1 / -1;
+    justify-self: end;
+  }
+}

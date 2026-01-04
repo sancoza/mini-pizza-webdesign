@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Englebert&family=Lilita+One&display=swap');
+
+.mp-billboard {
+  --ink: #0e0d0c;
+  --accent: #ff6a00;
+  --bg: #fff;
+  --wave-h: 96px;
+  --bottom-gap: calc(var(--wave-h) + 5vh);
+
+  /* corner images */
+  --thumb-size: clamp(160px, 24vw, 340px);
+  --bleed-x: clamp(14px, 3vw, 40px);
+  --bleed-y: clamp(8px, 2vw, 18px);
+
+  background: var(--bg);
+  color: var(--ink);
+  padding: clamp(40px, 7vw, 90px) 12px 0;
+  position: relative;
+ overflow-x: clip;   /* ili hidden ako clip ne radi u starijim browserima */
+  overflow-y: visible;
+  isolation: isolate;
+  z-index: 5;
+}
+
+.mp-inner {
+  max-width: 1200px;
+  margin: 0 auto var(--bottom-gap) auto;
+  position: relative;
+  z-index: 7; /* iznad .image-wrapper-a */
+   
+}
+
+/* === Tekst redovi === */
+.mp-line {
+  padding: clamp(12px, 1.6vw, 18px) 0;
+}
+.mp-line h2 {
+  margin: 0;
+  text-align: center;
+  font-family: "Roboto", sans-serif !important;
+  letter-spacing: -0.5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.5;
+  font-size: clamp(38px, 9vw, 110px);
+  color: var(--ink);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.mp-line:hover h2,
+.mp-line.is-active h2 {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* === GLOBAL sloj sa slikama (kao kod njih) === */
+.image-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+.thumbnail-set {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.thumbnail-set.active-set {
+  opacity: 1;
+  transform: none;
+}
+
+/* Pojedinačni thumb u ćošku */
+.thumb {
+  position: absolute;
+  width: var(--thumb-size);
+  aspect-ratio: 1/1;
+  display: block;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.18));
+}
+.thumb.tl {
+  top: calc(-1 * var(--bleed-y));
+  left: calc(-1 * var(--bleed-x));
+}
+.thumb.tr {
+  top: calc(-1 * var(--bleed-y));
+  right: calc(-1 * var(--bleed-x));
+}
+.thumb.bl {
+  bottom: calc(-1 * var(--bleed-y));
+  left: calc(-1 * var(--bleed-x));
+}
+.thumb.br {
+  bottom: calc(-1 * var(--bleed-y));
+  right: calc(-1 * var(--bleed-x));
+}
+
+/* Squirclo oblik + slika kao <img> (bez sečenja) */
+.thumb .imgbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 61% 39% 71% 29% / 37% 56% 44% 63%;
+}
+.thumb .imgbox img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12); /* malo “posterski” */
+}
+/* ===== Smile particles (opciono) ===== */
+.smile-trigger {
+  font-size: 28px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  bottom: 5%;
+  z-index: 3;
+}
+.smile-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+.smile-trigger.left { left: 15%; }
+.smile-trigger.right { right: 15%; }
+
+.smile-particle {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: pop 700ms ease-out forwards;
+}
+.smile-particle img {
+  width: 24px;
+  height: 24px;
+}
+@keyframes pop {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1.2); opacity: 0; }
+}
+/* Responsive */
+@media (max-width: 992px) {
+  .mp-billboard {
+    --thumb-size: clamp(130px, 30vw, 240px);
+  }
+}
+@media (max-width: 768px) {
+  .mp-billboard {
+    --thumb-size: clamp(110px, 32vw, 200px);
+    --bleed-x: clamp(8px, 2.5vw, 20px);
+  }
+  .mp-line h2 {
+    font-size: clamp(26px, 9.2vw, 58px);
+    line-height: 1;
+  }
+}
+@media (max-width: 560px) {
+  .mp-billboard {
+    --thumb-size: clamp(96px, 34vw, 170px);
+    --bleed-x: clamp(6px, 2vw, 14px);
+    --bleed-y: clamp(4px, 1.8vw, 10px);
+  }
+  .mp-line h2 {
+    font-size: clamp(22px, 9.8vw, 46px);
+    line-height: 1.05;
+  }
+}
+@media (max-width: 400px) {
+  .mp-billboard {
+    --thumb-size: clamp(84px, 36vw, 150px);
+  }
+  .mp-line h2 {
+    font-size: clamp(20px, 10.8vw, 40px);
+    line-height: 1.1;
+  }
+}
+
+

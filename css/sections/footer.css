@@ -1,0 +1,249 @@
+/* ===== Footer styles ===== */
+:root {
+  --ink: #111;
+  --paper: #fff;
+  --black: #141212;
+  --accent: #ff3c00; /* narandžasta */
+  --card: #ff4900; /* kartica (promeni po želji) */
+  --muted: #8b8b8b;
+  --radius: 22px;
+
+  /* badge tweaks */
+  --badge-size: 74px;
+  --badge-tilt: -8deg;
+  --badge-ring: 2px;
+}
+
+.site-footer {
+  background: var(--black);
+  color: #fff;
+  position: relative;
+  padding-top: 120px;
+  overflow-x: clip; /* sprečava horizontalni scroll ako nešto “viri” */
+}
+
+/* PROTRUDING CARD */
+.footer-cta-card {
+  position: relative;
+  max-width: 860px;
+  margin: -280px auto 40px; /* izbaci karticu iznad crnog dela */
+  background: var(--card);
+  color: #fff;
+  border-radius: 26px;
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  overflow: visible; /* dozvoli bedžu da “viri” */
+}
+
+/* === Badge sa slikom unutra === */
+/* ===== Smile Badge (footer version) ===== */
+.footer-cta-card {
+  position: relative;
+  overflow: visible;
+}
+
+/* plutajući smile-badge */
+.footer-badge.smile-trigger {
+  position: absolute;
+  top: -28px;
+  left: -22px;
+  width: 84px;
+  height: 84px;
+  border: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 5;
+}
+.footer-badge.smile-trigger img {
+  width: 48px;
+  height: 48px;
+}
+
+.cta-title {
+  font-size: clamp(26px, 4.2vw, 42px);
+  line-height: 1.1;
+  margin: 0 0 8px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+.cta-text {
+  margin: 0 0 18px;
+  color: #fff;
+}
+
+/* SIGNUP STRIP */
+.signup-strip {
+  max-width: 1100px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+.signup-heading {
+  font-size: clamp(18px, 2.4vw, 28px);
+  margin: 0 0 14px;
+  font-weight: 900;
+}
+.signup-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #fff;
+  padding: 8px;
+  border-radius: 999px;
+}
+.signup-form input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  padding: 16px 18px;
+  font-size: 16px;
+  border-radius: 999px;
+}
+.signup-submit {
+  border: 0;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+.signup-submit:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* MAIN FOOTER */
+.footer-main {
+  padding: 34px 16px 18px;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 32px);
+}
+.footer-brand img {
+  width: 160px;
+  height: auto;
+  display: block;
+}
+.brand-tag {
+  color: #d2c7a5;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  margin: 12px 0 14px;
+}
+
+/* društvene mreže (Font Awesome) */
+.social {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #eee;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+.social a:hover {
+  background: #ff3c00;
+  color: #111;
+  transform: translateY(-2px);
+}
+
+.footer-col h5 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #d8d8d8;
+  margin: 6px 0 10px;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col li {
+  margin: 8px 0;
+}
+.footer-col a {
+  color: #bcbcbc;
+  text-decoration: none;
+}
+.footer-col a:hover {
+  color: #fff;
+}
+
+.contact li {
+  color: #cfcfcf;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 22px auto 0;
+  padding-top: 14px;
+  border-top: 1px solid #242424;
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 14px;
+}
+
+/* Utilities */
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 520px) {
+  .signup-form {
+    flex-direction: column;
+    border-radius: 18px;
+  }
+  .signup-form input {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .signup-submit {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  /* badge malo manji na mobilnom */
+  :root {
+    --badge-size: 62px;
+  }
+  .footer-cta-card .footer-badge {
+    top: -22px;
+    left: -18px;
+  }
+}

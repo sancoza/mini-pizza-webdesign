@@ -1,0 +1,394 @@
+/* =========================================================
+   HERO PACK SECTION – Product Selector
+   ========================================================= */
+.hero-pack {
+  position: relative;
+  color: #fff;
+  overflow: visible;
+text-align: center;
+  background: #FF4900;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero-pack-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: clamp(32px, 6vw, 68px);
+  letter-spacing: 0.5px;
+  margin: 0 0 30px;
+}
+
+.hero-pack-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  padding: 50px;
+  gap: 56px;
+}
+
+/* =========================================================
+   PRODUCT BOX VISUALS (SVG)
+   ========================================================= */
+.hero-pack-visual {
+  position: relative;
+  max-width: 680px;
+  margin-inline: auto;
+
+  /* Desktop defaults (override in responsive.css) */
+  --front-left: 24%;
+  --front-bottom: -32px;
+  --front-max: 520px;
+
+  --back-left: -10%;
+  --back-top: -58px;
+  --back-max: 680px;
+}
+
+.box {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.box-back {
+  position: absolute;
+  top: 30px;
+  right: -100px;
+  transform: translateX(-10%) scale(0.8);
+  opacity: 1;
+  z-index: 99;
+}
+
+.box-front {
+  position: relative;
+  z-index: 2;
+}
+
+/* shadow under boxes */
+.box-shadow {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -12px;
+  height: 46px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0) 60%
+  );
+  filter: blur(6px);
+  z-index: 0;
+}
+
+/* =========================================================
+   RIGHT COLUMN – PRODUCT FORM
+   ========================================================= */
+.hero-pack-options .option-group {
+  margin-bottom: 22px;
+}
+
+.option-group-title {
+  font-weight: 800;
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+/* size selector pills */
+.option-group-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.size-pill {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 130px;
+  padding: 12px 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.size-pill strong { font-size: 15px; letter-spacing: 0.4px; }
+.size-pill span   { font-size: 11px; opacity: 0.9; }
+
+.pill-badge {
+  position: absolute;
+  top: -10px;
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 6px;
+  font-size: 9px;
+  letter-spacing: 0.4px;
+}
+.pill-badge-muted { background: #6a3d3d; }
+
+.size-pill:is(:hover, .is-active) {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #fff;
+  transform: translateY(-1px);
+}
+.size-pill.is-active {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35) inset;
+}
+
+/* =========================================================
+   CUSTOM SELECT (DEFAULT + HYBRID)
+   ========================================================= */
+.select-row {
+  display: grid;
+  gap: 10px;
+}
+
+.custom-select {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  overflow: hidden;
+}
+.custom-select:hover {
+  border-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.custom-select:focus-within {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25) inset;
+  background: rgba(255, 255, 255, 0.14);
+}
+.custom-select select {
+  appearance: none;
+  background: transparent;
+  color: #fff;
+  width: 100%;
+  padding: 14px 44px 14px 16px;
+  border: 0;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  outline: none;
+}
+.custom-select select option[value=''] {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 700;
+}
+.custom-select .chevron {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+.custom-select:focus-within .chevron {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* =========================================================
+   ADD TO CART BUTTON
+   ========================================================= */
+.btn-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+/* u slučaju da sačuvaš staru klasu + direktno #priceBtn */
+.btn-cta-price,
+#priceBtn {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* =========================================================
+   PRODUCT IMAGES – Positioned over Boxes (variable-driven)
+   ========================================================= */
+.product-shot {
+  position: absolute;
+  transform: translateZ(0);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.product-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.35));
+}
+.product-shot.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* front product image (uses CSS variables) */
+.product-shot-front {
+  left: var(--front-left);
+  bottom: var(--front-bottom);
+  width: 100%;
+  max-width: var(--front-max);
+  z-index: 200;
+}
+
+/* back product image (uses CSS variables) */
+.product-shot-back {
+  left: var(--back-left);
+  top: var(--back-top);
+  width: var(--back-width, 110%);
+  max-width: var(--back-max);
+  z-index: 120;
+}
+
+/* =========================================================
+   HYBRID SELECT (Desktop Custom Dropdown)
+   ========================================================= */
+/* Napomena: Dodate "alias" klase da ostane kompatibilno sa postojećim JS-om koji koristi __ nazive */
+@media (min-width: 521px) {
+  .custom-select[data-hybrid] {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    position: relative;
+  }
+  .custom-select[data-hybrid] select {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .custom-select[data-hybrid] .chevron { display: none; }
+
+  /* NOVI kebab-case + ALIASI sa __ zbog JS-a */
+  .hyselect {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .hyselect.is-open {
+    border-color: #fff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25) inset;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* button */
+  .hyselect-btn,
+  .hyselect__btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  /* chevron */
+  .hyselect-chev,
+  .hyselect__chev {
+    font-size: 18px;
+    opacity: 0.9;
+    transition: transform 0.2s cubic-bezier(0.83, 0, 0.17, 1);
+  }
+  .hyselect.is-open .hyselect-chev,
+  .hyselect.is-open .hyselect__chev {
+    transform: rotate(180deg);
+  }
+
+  /* panel */
+  .hyselect-panel,
+  .hyselect__panel {
+    position: absolute;
+    top: calc(100% - 315px);
+    left: 0;
+    width: min(360px, 92vw);
+    background: #fff;
+    color: #da291c;
+    border-radius: 22px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.35);
+    padding: 10px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.98);
+    transition: 0.2s all cubic-bezier(0.83, 0, 0.17, 1);
+  }
+  .hyselect.is-open .hyselect-panel,
+  .hyselect.is-open .hyselect__panel {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  /* option */
+  .hyselect-opt,
+  .hyselect__opt {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.5rem 0.9375rem;
+    text-transform: uppercase;
+    line-height: 1rem;
+    font-size: 16px;
+    font-weight: 800;
+    border-bottom: 2px solid rgba(255, 9, 13, 0.1);
+    opacity: 0.34;
+    cursor: pointer;
+    border-radius: 14px;
+  }
+  .hyselect-opt:hover,
+  .hyselect__opt:hover {
+    background: rgba(218, 41, 28, 0.06);
+    opacity: 1;
+  }
+  .hyselect-opt[aria-selected='true'],
+  .hyselect__opt[aria-selected='true'] {
+    opacity: 1;
+  }
+
+  /* backdrop catcher */
+  .hyselect.is-open::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 999;
+  }
+}

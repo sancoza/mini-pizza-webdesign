@@ -1,0 +1,166 @@
+/* ===== TIMELINE LOOK (How We Got Here) ===== */
+
+:root{
+  --tl-bg: #ff3b00;          /* crvena sa slike */
+  --tl-ink: #fff;            /* bela tipografija */
+  --tl-accent: #ffd6c7;      /* svetlije za sitnice */
+  --tl-max: 1100px;
+  --tl-pad: clamp(20px,4vw,40px);
+}
+
+.au-timeline{
+  background: var(--tl-bg);
+  color: var(--tl-ink);
+  padding: var(--tl-pad);
+  display: grid;
+  grid-template-columns: 220px 1fr;   /* leva šina + desni sadržaj */
+  gap: clamp(16px,3vw,40px);
+  align-items: start;
+  max-width: var(--tl-max);
+  margin: 0 auto;
+}
+
+/* Leva šina sa tačkastom linijom i godinama */
+.tl-rail{
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  min-height: 60vh;
+}
+
+.tl-rail__line{
+  position: absolute;
+  left: 96px;                 /* poravnaj sa godinama (labelama) */
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  /* bela tačkasta "linija" */
+  background:
+    radial-gradient(circle,#fff 2.2px,transparent 2.2px)
+    center/6px 20px repeat-y;
+  transform-origin: top;
+  /* thickening via JS (opciono – vizuelni progres) */
+  --rail-progress: 1;
+  scale: 1 var(--rail-progress);
+}
+
+.tl-years{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.tl-year{
+  display: grid;
+  grid-template-columns: 96px auto;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0;
+  cursor: pointer;
+  user-select: none;
+  opacity: .7;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.tl-year.is-active{ opacity: 1; transform: translateX(2px); }
+
+.tl-year__dot{
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 6px rgba(255,255,255,.25);
+  justify-self: end;
+}
+.tl-year__label{
+  font-weight: 900;
+  letter-spacing: .5px;
+}
+
+/* Desni sadržaj */
+.tl-list{ position: relative; }
+
+.tl-item{
+  display: grid;
+  grid-template-columns: 220px 1fr;  /* slika | tekst */
+  gap: 18px;
+  align-items: center;
+  margin: clamp(24px,6vw,56px) 0;
+  opacity: .35;                      /* lagani fallback pre animacije */
+  transition: opacity .25s ease;
+}
+.tl-item.tl-item--alt{ grid-template-columns: 1fr 220px; }
+.tl-item.tl-item--alt .tl-media{ order: 2; }  /* zamena strane */
+
+.tl-media{
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 26px rgba(0,0,0,.25), 0 0 0 8px #fff; /* bela ivica */
+}
+.tl-media img{
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+}
+
+.tl-text h3{
+  margin: 0 0 6px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(18px,2.2vw,28px);
+  letter-spacing: .5px;
+}
+.tl-text p{
+  margin: 0;
+  line-height: 1.45;
+  color: #fff;
+  opacity: .95;
+}
+
+/* Heading sekcije (ako želiš isti stil kao na slici) */
+.au-hero{
+  background: var(--tl-bg);
+  color: var(--tl-ink);
+  text-align: center;
+  padding: 28px 16px 10px;
+}
+.au-hero__title{
+  margin: 0;
+  font-size: clamp(26px,6vw,44px);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* Responsivno: jedna kolona na mobilnom */
+@media (max-width: 880px){
+  .au-timeline{
+    grid-template-columns: 1fr;
+  }
+  .tl-rail{
+    position: relative;
+    top: 0;
+    height: 40px;
+    margin-bottom: 16px;
+  }
+  .tl-rail__line{
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 100%;
+  }
+  .tl-years{
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 16px;
+  }
+  .tl-year{
+    grid-template-columns: 22px auto;
+    margin: 6px 0;
+  }
+  .tl-year__dot{
+    width: 16px; height: 16px; box-shadow: 0 0 0 4px rgba(255,255,255,.2);
+    justify-self: start;
+  }
+  .tl-item,
+  .tl-item.tl-item--alt{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .tl-media{ margin: 0 auto; }
+}
